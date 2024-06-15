@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "datatables.net": "^1.13.1",
+    "manifest.json": "^1.2.0",
+    "sweetalert2": "^11.6.16"
+  },
+  "devDependencies": {
+    "@symfony/webpack-encore": "^4.2.0",
+    "webpack-notifier": "^1.15.0"
+  }
+}

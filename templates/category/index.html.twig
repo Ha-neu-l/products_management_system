@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Categoriries list{% endblock %}
+
+{% block body %}
+   <div class="row my-5">
+      <div class="col-md-10 mx-auto">
+        {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+          {{message}}
+        </div>
+        {% endfor %}
+        <div class="card">
+         <div class="card-header d-flex justify-content-between align-items-center">
+            <span>List Of Categories</span>
+            <a href="{{path('category_add')}}" class="btn btn-sm btn-primary">Add</a>
+         </div>   
+         <div class="card-body">
+            <table id="table_id" class="table table-bordred table-hover">
+              <thead>
+                <tr>
+                        <th>Category ID</th>
+                        <th>Category Name</th>
+                        <th>Category Departement</th>
+                        <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                  {% for categorie in categories %}
+                     <tr>
+                        <td>{{loop.index}}</td>
+                        <td>{{categorie.name}}</td>
+                        <td>{{categorie.rayon.name}}</td>
+                        
+                          <td class=" justify-content-around align-item-center">
+                          <form id="{{categorie.id}}" action="{{path('category_delete',{id: categorie.id})}}" method="post"></form>
+                            <button onclick="deleteItem('{{categorie.id}}')" class="btn btn-sm btn-danger" type="submit">Delete</button>
+                          </td>
+                        
+                     </tr>
+                  {% endfor %}   
+              </tbody>
+            </table>
+         </div>     
+         </div>
+      </div>
+    </div>
+{% endblock %}

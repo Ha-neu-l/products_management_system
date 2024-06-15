@@ -1,0 +1,100 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Home{% endblock %}
+
+{% block stylesheet %}
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+
+{% endblock %}
+
+{% block body %}
+
+
+<div class="album py-5 mt-4">
+<div class="container">
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">
+<div class="col">
+          <div class="card shadow-sm">
+          <img src="uploads/WS.jpg" alt="" class="bd-placeholder-img card-img-top" width="100%" height="225" aria-label="Placeholder: Thumbnail">
+            <div class="card-body">
+              <h4 class="card-text">Water Sports</h4>
+              {% if app.user %}
+              <P>Click here to see all products</P>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                   <a href="{{path('rayon_product_list',{idRayon: 1})}}" class="btn btn-sm btn-info">View</a>
+                </div>
+              </div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+<div class="col">
+          <div class="card shadow-sm">
+          <img src="uploads/Fitness.jpg" alt="" class="bd-placeholder-img card-img-top" width="100%" height="225" aria-label="Placeholder: Thumbnail">
+            <div class="card-body">
+              <h4 class="card-text">Fitness & Exercice </h4>
+              {% if app.user %}
+              <P>Click here to see all products</P>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                   <a href="{{path('rayon_product_list',{idRayon: 4})}}" class="btn btn-sm btn-info">View</a>
+                </div>
+              </div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+<div class="col">
+          <div class="card shadow-sm">
+          <img src="uploads/Outdoors.jpg" alt="" class="bd-placeholder-img card-img-top" width="100%" height="225" aria-label="Placeholder: Thumbnail">
+            <div class="card-body">
+              <h4 class="card-text">Outdoors</h4>
+              {% if app.user %}
+              <P>Click here to see all products</P>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                   <a href="{{path('rayon_product_list',{idRayon: 3})}}" class="btn btn-sm btn-info">View</a>
+                </div>
+              </div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+<div class="col">
+          <div class="card shadow-sm">
+          <img src="uploads/TS.png" alt="" class="bd-placeholder-img card-img-top" width="100%" height="225" aria-label="Placeholder: Thumbnail">
+            <div class="card-body">
+              <h4 class="card-text">Team Sports</h4>
+             {% if app.user %}
+              <P>Click here to see all products</P>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                   <a href="{{path('rayon_product_list',{idRayon: 2})}}" class="btn btn-sm btn-info">View</a>
+                </div>
+              </div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+</div>
+</div>
+</div>
+
+{% if  app.user %}
+<div class="col">
+<div class="card shadow-sm mr-5 card-text">
+<h5 class="d-flex justify-content-center mt-2">Welcome &nbsp; &nbsp;<span style="color:#82AAE3;">{{ app.user.username}} </span></h5>
+</div>
+</div>
+{% else %}
+ <div class="col">
+        <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg mt-0 mb-2" style="background-image: url('uploads/blue.jpg');background-size: cover;">
+          <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+            <p class="pt-5 mt-0 mb-4 display-6 lh-1 bold "> <em> Login to access the management system. </em></p>
+          </div>
+        </div>
+      </div>
+{% endif %}
+ 
+{% endblock %}

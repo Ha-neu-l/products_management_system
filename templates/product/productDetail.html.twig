@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Products Details{% endblock %}
+
+{% block body %}
+    <div class="container my-5">
+    {% if product %}
+        <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+        <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
+            <h1 class="display-4 fw-bold lh-1">{{product.name}}</h1>
+            <p class="lead">{{product.discreption}}</p>
+            <div class="d-grid gap-2  justify-content-md-start mb-4 mb-lg-3">
+                <h5>Price: <span class="text text-danger">{{product.price}}$</span></h5>          
+                
+                <h5>Category: <span class="text text-primary">{{product.category.name}}</span></h5>          
+
+            </div>
+        </div>
+        <div class="col-lg-4 card mb-5" style="width=300; height=300;">
+            {% if product.image %}
+            <img class="card-img-top" src="{{photo_url~product.image}}" alt="{{product.name}}" width="720">
+            {% else %}
+            <img class="card-img-top" src="{{photo_url~'default.jpg'}}" alt="{{product.name}}" width="720">
+            {% endif %}
+        </div>
+        </div>
+    {% else %}
+        <div class="alert alert-info">
+            No product Found
+        </div>
+    {% endif %}
+  </div>
+{% endblock %}
